@@ -1,79 +1,91 @@
-import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, WebDriverException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+def configurar_navegador(com_proxy=False):
+    options = Options()
+    if com_proxy:
+        options.add_argument('--proxy-server=http://50.174.7.159:80')
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+    return driver
 
 def buscar_preco(EAN, navegador="chrome"):
+    driver = None
     try:
         print("Iniciando a busca...") 
-
-        # Configuração do driver para Chrome
-        if navegador.lower() == "chrome":
-            options = Options()
-            options.headless = False
-            driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
-        else:
-            raise ValueError("Navegador não suportado. Use 'chrome'.")
-
-        
+        driver = configurar_navegador(com_proxy=False)
         driver.get("https://precodahora.ba.gov.br/produtos/")
         print("Acessando o site...") 
-
-      
-        wait = WebDriverWait(driver, 10) 
-        search_box = wait.until(EC.element_to_be_clickable((By.ID, "top-sbar")))  # ID correto do campo de busca
+        search_box = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "top-sbar"))
+        )
         print("Campo de busca encontrado.")
-        
-       
         search_box.send_keys(EAN)
         print(f"EAN {EAN} digitado no campo de busca.")
-
-        
-        print("Esperando o botão de busca...")  
-        botao_busca = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "btn-top-sbar")))  # Classe do botão de busca
-        print("Botão de busca encontrado.")
-
-        
+        botao_busca = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "btn-top-sbar"))
+        )
         botao_busca.click() 
         print("Botão de busca clicado.")  
-
-        
-        print("Aguardando a página carregar...") 
-        time.sleep(5)  
-
-
-        print("Conteúdo da página após a busca:")
-        print(driver.page_source[:500])  
-
         time.sleep(5)
-
-        # Tentar obter o preço
-        print("Tentando encontrar o preço...") 
         try:
-            preco = driver.find_element(By.CLASS_NAME, "precoProduto") 
-            if preco:
-                print(f"Produto {EAN} encontrado! Preço: {preco.text}")
-            else:
-                print(f"Produto {EAN} não encontrado ou preço não disponível.")
-        except NoSuchElementException:
-            print(f"Produto {EAN} não encontrado ou preço não disponível.")
-        
-        print("URL da página atual:", driver.current_url)
-        print("Conteúdo da página:", driver.page_source[:500]) 
-
-        print("Pressione ENTER para fechar o navegador...")
-        input()
-
-        driver.quit() 
-
-    except (NoSuchElementException, TimeoutException, WebDriverException) as e:
-        print(f"Ocorreu um erro específico do Selenium: {e}")
+            info_div = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "list-info.mt-2.mb-2"))
+            )
+            print("Informações encontradas dentro da class 'list-info mt-2 mb-2'.")
+            info_text = info_div.text.strip()
+            print(f"Informações antes do <hr>: {info_text}")
+        except Exception as e:
+            print(f"Erro ao buscar informações: {e}")
+            raise
+        try:
+            cases_info = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "cases"))
+            ).text.strip()
+            print(f"Número de resultados encontrados: {cases_info}")
+        except Exception as e:
+            print(f"Erro ao buscar o número de resultados: {e}")
+            raise
     except Exception as e:
         print(f"Ocorreu um erro: {e}")
+        print("Tentando com proxy...")
+        if driver:
+            driver.quit()
+        driver = configurar_navegador(com_proxy=True)
+        try:
+            driver.get("https://precodahora.ba.gov.br/produtos/")
+            print("Acessando o site novamente com proxy...") 
+            search_box = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "top-sbar"))
+            )
+            search_box.send_keys(EAN)
+            print(f"EAN {EAN} digitado no campo de busca.")
+            botao_busca = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "btn-top-sbar"))
+            )
+            botao_busca.click() 
+            print("Botão de busca clicado.")  
+            time.sleep(5)
+            info_div = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "list-info.mt-2.mb-2"))
+            )
+            print("Informações encontradas dentro da class 'list-info mt-2 mb-2'.")
+            info_text = info_div.text.strip()
+            print(f"Informações antes do <hr>: {info_text}")
+            cases_info = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "cases"))
+            ).text.strip()
+            print(f"Número de resultados encontrados: {cases_info}")
+        except Exception as e:
+            print(f"Ocorreu um erro ao tentar buscar novamente: {e}")
+    finally:
+        if driver:
+            driver.quit()
 
 buscar_preco("7896004713274")
