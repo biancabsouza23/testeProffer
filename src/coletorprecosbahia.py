@@ -17,38 +17,32 @@ class ColetorPrecosBahia:
             options=options,
         )
 
+    def handle_captcha(self, string: str) -> None:
+        time.sleep(3)
+        captcha_url = "https://precodahora.ba.gov.br/challenge/"
+        if self.driver.current_url == captcha_url:
+            print("Captcha encontrado. Resolva-o manualmente.")
+            time.sleep(20)
+
     def pesquisar_produto(self, string: str):
         self.driver.get(self.url)
         try:
+            # Verificar se o site está pedindo captcha
+            self.handle_captcha(string)
+            # Digita no campo de pesquisa
             element = self.driver.find_element(by=By.ID, value="top-sbar")
             element.send_keys(string)
             time.sleep(3)
-
-        
-            try:
-                captcha_element = self.driver.find_element(by=By.CLASS_NAME, value="btn-danger")
-
-                if captcha_element.is_displayed():
-                    print("Captcha encontrado. Resolva-o manualmente.")
-                    time.sleep(10)
-                    element = self.driver.find_element(by=By.ID, value="top-sbar")
-                    element.send_keys(string)
-                    time.sleep(3)
-                    
-            except NoSuchElementException:
-                pass  # Se não achar o captcha, continua 
-            
-            
-
+            # Aperta o botão de pesquisa
             button = self.driver.find_element(by=By.CLASS_NAME, value="fa-search")
             button.click()
             time.sleep(3)
-
-            self.pesquisar_preco()
+            # Extrai as informações de produtos
+            self.extrair_dados_produtos()
         except NoSuchElementException as e:
             print("Elemento não encontrado:", e)
 
-    def pesquisar_preco(self):
+    def extrair_dados_produtos(self):
         try:
             item_cards = self.driver.find_elements(by=By.CSS_SELECTOR, value="div.flex-item2")
             for item_card in item_cards:
@@ -102,3 +96,6 @@ class ColetorPrecosBahia:
 
         except NoSuchElementException as e:
             print("Elemento de preço não encontrado:", e)
+
+    def fechar_navegador(self):
+        self.driver.quit()
