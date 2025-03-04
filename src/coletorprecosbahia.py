@@ -17,24 +17,38 @@ class ColetorPrecosBahia:
             options=options,
         )
 
-        def pesquisar_produto(self, string: str):
-            self.driver.get(self.url)
+    def pesquisar_produto(self, string: str):
+        self.driver.get(self.url)
+        try:
+            element = self.driver.find_element(by=By.ID, value="top-sbar")
+            element.send_keys(string)
+            time.sleep(3)
+
+        
             try:
-                element = self.driver.find_element(by=By.ID, value="top-sbar")
-                element.send_keys(string)
-                time.sleep(3)           
-                button = self.driver.find_element(by=By.CLASS_NAME, value="fa-search")
-                button.click()
-                time.sleep(3)
+                captcha_element = self.driver.find_element(by=By.CLASS_NAME, value="btn-danger")
 
-                self.pesquisar_preco()
-            except NoSuchElementException as e:
-                print("Elemento não encontrado:", e)
+                if captcha_element.is_displayed():
+                    print("Captcha encontrado. Resolva-o manualmente.")
+                    time.sleep(10)
+                    element = self.driver.find_element(by=By.ID, value="top-sbar")
+                    element.send_keys(string)
+                    time.sleep(3)
+                    
+            except NoSuchElementException:
+                pass  # Se não achar o captcha, continua 
+            
+            
 
+            button = self.driver.find_element(by=By.CLASS_NAME, value="fa-search")
+            button.click()
+            time.sleep(3)
 
+            self.pesquisar_preco()
+        except NoSuchElementException as e:
+            print("Elemento não encontrado:", e)
 
-
-    def pesquisar_elementos(self):
+    def pesquisar_preco(self):
         try:
             item_cards = self.driver.find_elements(by=By.CSS_SELECTOR, value="div.flex-item2")
             for item_card in item_cards:
