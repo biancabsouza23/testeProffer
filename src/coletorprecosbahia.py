@@ -28,7 +28,7 @@ class ColetorPrecosBahia:
         self.driver.get(self.url)
         try:
             # Verificar se o site está pedindo captcha
-            self.handle_captcha(string)
+            self.handle_captcha()
             # Digita no campo de pesquisa
             element = self.driver.find_element(by=By.ID, value="top-sbar")
             element.send_keys(string)
