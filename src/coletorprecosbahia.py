@@ -8,6 +8,7 @@ import pandas as pd
 import time
 import json
 from datetime import datetime
+import re
 
 
 class ColetorPrecosBahia:
@@ -89,20 +90,22 @@ class ColetorPrecosBahia:
                 price = self.formatar_preco(price)  # Converte para float
                 endereco_element = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(6)")
                 endereco = endereco_element.text
+                dados_endereco = self.extrair_endereco(endereco)
                 
                 # Criamos o dicionário diretamente
                 produto = {
                     "ean": ean,
                     "descricao": name,
                     "preco": price,
-                    "data_coleta": "2025-03-04",
+                    "data_coleta": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "codmunicipio": "",
                     "codestado": "",
                     "rede_fonte": store,
-                    "bairro": endereco,
-                    "cidade": "",
-                    "uf": "",
-                    "cnpj": "",
+                    "logradouro": dados_endereco["logradouro"],
+                    "bairro": dados_endereco["bairro"],
+                    "cep": dados_endereco["cep"],
+                    "cidade": dados_endereco["cidade"],
+                    "uf": "BA",
                 }
                 
                 self.criar_resultado(produto)  # Passamos o dicionário diretamente
@@ -140,3 +143,54 @@ class ColetorPrecosBahia:
         if numeros:
             return float(numeros[-1])
         raise ValueError(f"Formato de preço inválido: {preco_str}")
+
+    import re
+
+    def extrair_endereco(self, endereco):
+        """Separa logradouro, número, bairro, CEP e cidade a partir do endereço completo."""
+        
+        endereco = endereco.strip()  # Remove espaços extras
+
+        # Expressão regular para encontrar CEP (8 dígitos seguidos)
+        cep_match = re.search(r"\b\d{8}\b", endereco)
+        cep = cep_match.group() if cep_match else ""
+
+        # Remover CEP da string para facilitar o parsing
+        endereco_sem_cep = endereco.replace(cep, "").strip()
+
+        # Separar cidade (parte após a vírgula)
+        if "," in endereco_sem_cep:
+            endereco_principal, cidade = endereco_sem_cep.rsplit(",", 1)
+            cidade = cidade.strip()
+        else:
+            endereco_principal = endereco_sem_cep
+            cidade = ""
+
+        # Separar logradouro, número e bairro
+        partes = endereco_principal.split()
+
+        logradouro = []
+        numero = ""
+        bairro = ""
+
+        for i, parte in enumerate(partes):
+            if parte.isdigit():  # O primeiro número encontrado deve ser o número do endereço
+                numero = parte
+                bairro = " ".join(partes[i+1:])  # O restante será o bairro
+                break
+            else:
+                logradouro.append(parte)
+
+        logradouro = " ".join(logradouro)
+        
+        return {
+            "logradouro": logradouro,
+            "numero": numero,
+            "bairro": bairro,
+            "cep": cep,
+            "cidade": cidade,
+            "uf": "",  # O UF não está presente na string original, então deixamos vazio
+        }
+
+
+
