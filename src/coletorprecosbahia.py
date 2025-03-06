@@ -110,7 +110,7 @@ class ColetorPrecosBahia:
                 self.criar_resultado(
                     ean=ean,
                     descricao=name,
-                    preco=float(price),
+                    preco=price,
                     data_coleta="2025-03-04",
                     codmunicipio="",  # Não temos essa informação
                     codestado="",  # Não temos essa informação
