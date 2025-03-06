@@ -28,10 +28,6 @@ class ColetorPrecosBahia:
             options=options,
         )
 
-        # Remover a detecção de automação via JavaScript
-        self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-
-
         # Criar DataFrame para armazenar os dados
         self.resultado = pd.DataFrame(
             columns=[
@@ -91,6 +87,8 @@ class ColetorPrecosBahia:
                 price = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(2)").text
                 store = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(5)").text
                 price = self.formatar_preco(price)  # Converte para float
+                endereco_element = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(6)")
+                endereco = endereco_element.text
                 
                 # Criamos o dicionário diretamente
                 produto = {
@@ -101,7 +99,7 @@ class ColetorPrecosBahia:
                     "codmunicipio": "",
                     "codestado": "",
                     "rede_fonte": store,
-                    "bairro": "",
+                    "bairro": endereco,
                     "cidade": "",
                     "uf": "",
                     "cnpj": "",
