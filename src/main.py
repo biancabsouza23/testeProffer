@@ -13,4 +13,5 @@ for ean in lista_eans:
     coletor.pesquisar_produto(ean)
 
 coletor.salvar_resultado("resultado.csv", "resultado.json")
+
 coletor.fechar_navegador()
