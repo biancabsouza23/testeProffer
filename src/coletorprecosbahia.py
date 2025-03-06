@@ -33,10 +33,10 @@ class ColetorPrecosBahia:
             ]
         )
 
-    def handle_captcha(self, string: str) -> None:
+    def handle_captcha(self) -> None:
         time.sleep(3)
         captcha_url = "https://precodahora.ba.gov.br/challenge/"
-        if self.driver.current_url == captcha_url:
+        if self.driver.current_url == captcha_url: # verifica URL atual do navegador controlado pelo SELENIUM
             print("Captcha encontrado. Resolva-o manualmente.")
             time.sleep(20)
 
@@ -44,7 +44,7 @@ class ColetorPrecosBahia:
         self.driver.get(self.url)
         try:
             # Verificar se o site está pedindo captcha
-            self.handle_captcha(string)
+            self.handle_captcha()
             # Digita no campo de pesquisa
             element = self.driver.find_element(by=By.ID, value="top-sbar")
             element.send_keys(string)
