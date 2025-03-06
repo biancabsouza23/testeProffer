@@ -12,4 +12,5 @@ with open(arquivo_json, "r", encoding="utf-8") as f:
 for ean in lista_eans:
     coletor.pesquisar_produto(ean)
 
+coletor.salvar_resultado("resultado.csv")
 coletor.fechar_navegador()

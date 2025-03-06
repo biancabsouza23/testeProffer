@@ -5,8 +5,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import NoSuchElementException
+import pandas as pd
 import time
-
+import json
 
 class ColetorPrecosBahia:
     def __init__(self):
@@ -15,6 +16,21 @@ class ColetorPrecosBahia:
         self.driver = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()),
             options=options,
+        )
+        self.resultado = pd.DataFrame(
+            columns=[
+                "ean",
+                "descricao",
+                "preco",
+                "data_coleta",
+                "codmunicipio",
+                "codestado",
+                "rede_fonte",
+                "bairro",
+                "cidade",
+                "uf",
+                "cnpj",
+            ]
         )
 
     def handle_captcha(self, string: str) -> None:
@@ -91,11 +107,42 @@ class ColetorPrecosBahia:
                 )
                 address = adress_element.text
                 print(address)
-
-                div_index = 5
+                self.criar_resultado(
+                    ean=ean,
+                    descricao=name,
+                    preco=float(price),
+                    data_coleta="2025-03-04",
+                    codmunicipio="",  # Não temos essa informação
+                    codestado="",  # Não temos essa informação
+                    rede_fonte=store,
+                    bairro="",
+                    cidade="",
+                    uf="",
+                    cnpj="",
+                )
 
         except NoSuchElementException as e:
             print("Elemento de preço não encontrado:", e)
+
+    def criar_resultado(self, ean: str, descricao: str, preco: float, data_coleta: str, codmunicipio: int, codestado: int, rede_fonte: str, bairro: str, cidade: str, uf: str, cnpj: str):
+        # Cria um dicionário com os dados
+        item = {
+            "ean": ean,
+            "descricao": descricao,
+            "preco": preco,
+            "data_coleta": data_coleta,
+            "codmunicipio": codmunicipio,
+            "codestado": codestado,
+            "rede_fonte": rede_fonte,
+            "bairro": bairro,
+            "cidade": cidade,
+            "uf": uf,
+            "cnpj": cnpj,
+        }
+        self.resultado = pd.concat([self.resultado, pd.DataFrame([item])])
+    
+    def salvar_resultado(self, nome_arquivo: str):
+        self.resultado.to_csv(nome_arquivo, index=False)
 
     def fechar_navegador(self):
         self.driver.quit()
