@@ -85,10 +85,26 @@ class ColetorPrecosBahia:
                 # Captura os dados do produto
                 name = item_card.find_element(By.TAG_NAME, "strong").text
                 ean = item_card.find_element(By.CSS_SELECTOR, "span.search-gtin").get_attribute("data-gtin")
-                price = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(2)").text
-                store = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(5)").text
+                try:
+                    # Verifica se existe a classe "sobre-desconto"
+                    desconto = item_card.find_elements(By.CLASS_NAME, "sobre-desconto")
+                    
+                    if desconto:
+                        # Se houver desconto, pegar o preço na terceira div e a loja na sexta div
+                        price = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(3)").text
+                        store = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(6)").text
+                        endereco_element = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(7)")
+                    else:
+                        # Se não houver desconto, pegar o preço na segunda div e a loja na quinta div
+                        price = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(2)").text
+                        store = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(5)").text
+                        endereco_element = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(6)")
+                except NoSuchElementException:
+                    print("Preço ou loja não encontrados!")
+                    price = "N/A"
+                    store = "N/A"  # Define valores padrão caso os elementos não sejam encontrados
+
                 price = self.formatar_preco(price)  # Converte para float
-                endereco_element = item_card.find_element(By.CSS_SELECTOR, "div.flex-item2 > div:nth-child(6)")
                 endereco = endereco_element.text
                 dados_endereco = self.extrair_endereco(endereco)
                 
@@ -98,8 +114,8 @@ class ColetorPrecosBahia:
                     "descricao": name,
                     "preco": price,
                     "data_coleta": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                    "codmunicipio": "",
-                    "codestado": "",
+                    "codmunicipio": self.codmunicipio(dados_endereco["cidade"]),
+                    "codestado": "29",
                     "rede_fonte": store,
                     "logradouro": dados_endereco["logradouro"],
                     "bairro": dados_endereco["bairro"],
@@ -194,3 +210,10 @@ class ColetorPrecosBahia:
 
 
 
+    def codmunicipio(self, cidade) -> int:
+        if cidade == "SALVADOR":
+            return 2910800
+        elif cidade == "FEIRA DE SANTANA":
+            return 2927408
+        else:
+            return 0
