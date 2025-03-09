@@ -1,0 +1,34 @@
+7896004713274,feira de santana
+AAS,feira de santana
+7896004713274,salvador
+AAS,salvador
+7896004713274,feira de santana
+AAS,feira de santana
+7896004713274,salvador
+AAS,salvador
+7896004713274,feira de santana
+AAS,feira de santana
+7896004713274,salvador
+AAS,salvador
+AAS,feira de santana
+AAS,salvador
+AAS,feira de santana
+CICLOBENZAPRINA,feira de santana
+CILOSTAZOL,feira de santana
+CIMETIDINA,feira de santana
+CINARIZINA,feira de santana
+CIPROFIBRATO,feira de santana
+CIPROFLOXACINO,feira de santana
+CIPROTERONA,feira de santana
+CLARITROMICINA,feira de santana
+AAS,salvador
+CICLOBENZAPRINA,salvador
+CILOSTAZOL,salvador
+CINARIZINA,salvador
+CIPROFIBRATO,salvador
+CIPROFLOXACINO,salvador
+CIPROTERONA,salvador
+CITALOPRAM,salvador
+CLARITROMICINA,salvador
+CIPROTERONA 50 BG 20C,feira de santana
+CIPROTERONA 50 BG 20C,salvador
