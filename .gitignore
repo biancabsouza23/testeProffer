@@ -170,6 +170,3 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-resultado.csv
-lista_eans_copy.json
-resultado.json

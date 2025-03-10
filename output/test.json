@@ -1,0 +1,16 @@
+[
+    {
+        "ean":"1234567890123",
+        "descricao":"Produto Teste",
+        "preco":10.99,
+        "data_coleta":"2023-10-01 12:00:00",
+        "codmunicipio":2910800,
+        "codestado":"29",
+        "rede_fonte":"Loja Teste",
+        "logradouro":"Rua Teste",
+        "bairro":"Bairro Teste",
+        "cep":"12345678",
+        "cidade":"Salvador",
+        "uf":"BA"
+    }
+]

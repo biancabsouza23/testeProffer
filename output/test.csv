@@ -1,0 +1,2 @@
+ean,descricao,preco,data_coleta,codmunicipio,codestado,rede_fonte,logradouro,bairro,cep,cidade,uf
+1234567890123,Produto Teste,10.99,2023-10-01 12:00:00,2910800,29,Loja Teste,Rua Teste,Bairro Teste,12345678,Salvador,BA

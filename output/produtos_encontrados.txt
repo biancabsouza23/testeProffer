@@ -1,17 +1,3 @@
-7896004713274,feira de santana
-AAS,feira de santana
-7896004713274,salvador
-AAS,salvador
-7896004713274,feira de santana
-AAS,feira de santana
-7896004713274,salvador
-AAS,salvador
-7896004713274,feira de santana
-AAS,feira de santana
-7896004713274,salvador
-AAS,salvador
-AAS,feira de santana
-AAS,salvador
 AAS,feira de santana
 CICLOBENZAPRINA,feira de santana
 CILOSTAZOL,feira de santana
@@ -20,15 +6,389 @@ CINARIZINA,feira de santana
 CIPROFIBRATO,feira de santana
 CIPROFLOXACINO,feira de santana
 CIPROTERONA,feira de santana
+CITALOPRAM,feira de santana
 CLARITROMICINA,feira de santana
+CLINDAMICINA,feira de santana
+CLIOQUINOL,feira de santana
+CLOBETASOL,feira de santana
+CLOMIPRAMINA,feira de santana
+CLONAZEPAM,feira de santana
+CLOPIDOGREL,feira de santana
+CLORMADINONA,feira de santana
+CLORTALIDONA,feira de santana
+CLOSTEBOL,feira de santana
+CLOTRIMAZOL,feira de santana
+COLECALCIFEROL,feira de santana
+DAPAGLIFLOZINA,feira de santana
+DEFLAZACORTE,feira de santana
+DESLORATADINA,feira de santana
+CANDESARTANA,feira de santana
+CAPTOPRIL,feira de santana
+CARBAMAZEPINA,feira de santana
+CARBOCISTEINA,feira de santana
+CARISOPRODOL,feira de santana
+CARVEDILOL,feira de santana
+CEFADROXILA,feira de santana
+CEFALEXINA,feira de santana
+CEFTRIAXONA,feira de santana
+CEFUROXIMA,feira de santana
+CELECOXIBE,feira de santana
+CETOCONAZOL,feira de santana
+CETOPROFENO,feira de santana
+CETOROLACO,feira de santana
+CETOTIFENO,feira de santana
+DESOGESTREL,feira de santana
+DESONIDA,feira de santana
+DESVENLAFAXINA,feira de santana
+DEXAMETASONA,feira de santana
+DEXCLORFENIRAMINA,feira de santana
+DIAZEPAM,feira de santana
+DICLOFENACO,feira de santana
+DIGOXINA,feira de santana
+DILTIAZEM,feira de santana
+DIMETICONA,feira de santana
+DIPIRONA,feira de santana
+DIVALPROATO,feira de santana
+DOMPERIDONA,feira de santana
+DONEPEZILA,feira de santana
+DORZOLAMIDA,feira de santana
+DOXAZOSINA,feira de santana
+DOXICICLINA,feira de santana
+DROPROPIZINA,feira de santana
+DROSPIRERONA,feira de santana
+DULOXETINA,feira de santana
+DUTASTERIDA,feira de santana
+ENALAPRIL,feira de santana
+ESCITALOPRAM,feira de santana
+ESOMEPRAZOL,feira de santana
+ESPIRONOLACTONA,feira de santana
+ESTRIOL,feira de santana
+ETINILESTRADIOL,feira de santana
+ETODOLACO,feira de santana
+ETORICOXIBE,feira de santana
+EZETIMIBA,feira de santana
+FENITOINA,feira de santana
+FENOBARBITAL,feira de santana
+FENOFIBRATO,feira de santana
+FENTICONAZOL,feira de santana
+FEXOFENADINA,feira de santana
+FINASTERIDA,feira de santana
+FLUCONAZOL,feira de santana
+FLUNARIZINA,feira de santana
+FLUOXETINA,feira de santana
+FUROSEMIDA,feira de santana
+GABAPENTINA,feira de santana
+GENFIBROZILA,feira de santana
+GENTAMICINA,feira de santana
+GESTODENO,feira de santana
+GLIBENCLAMIDA,feira de santana
+GLICAZIDA,feira de santana
+GLICLAZIDA,feira de santana
+GLICOSAMINA,feira de santana
+GLIMEPIRIDA,feira de santana
+GUAIFENESINA,feira de santana
+HIDROCLOROTIAZIDA,feira de santana
+HIDROCORTISONA,feira de santana
+HIDROQUINONA,feira de santana
+HIDROXICLOROQUINA,feira de santana
+HIDROXIZINA,feira de santana
+IBUPROFENO,feira de santana
+INDAPAMIDA,feira de santana
+IPRATROPIO,feira de santana
+IRBESARTANA,feira de santana
+ISOSSORBIDA,feira de santana
+7896004713274,feira de santana
+7899547508765,feira de santana
+7898919865192,feira de santana
+7896006225010,feira de santana
+7898172862549,feira de santana
+7898560661570,feira de santana
+7896321017666,feira de santana
+7896007549320,feira de santana
+7891142202833,feira de santana
+7898593050075,feira de santana
+7908007901166,feira de santana
+7896658034688,feira de santana
+7892917004171,feira de santana
+7896006213093,feira de santana
+7891317129958,feira de santana
+8903855076072,feira de santana
+7899420507915,feira de santana
+7891000340981,feira de santana
+7895144603063,feira de santana
+5009602,feira de santana
+7896241248287,feira de santana
+7896641800085,feira de santana
+7896382706653,feira de santana
+4015630981977,feira de santana
+7891317001926,feira de santana
+7896112401247,feira de santana
+8000500126288,feira de santana
+7898927980375,feira de santana
+7898556034524,feira de santana
+618341625495,feira de santana
+7898687730289,feira de santana
+7898575780631,feira de santana
+7897947601185,feira de santana
+7891033510757,feira de santana
+7898040325466,feira de santana
+7896714226708,feira de santana
+7896023706394,feira de santana
+7894650005712,feira de santana
+7891106908641,feira de santana
+7898213880242,feira de santana
+7898559906446,feira de santana
+7896862970567,feira de santana
+7891142115492,feira de santana
+7898938208130,feira de santana
+7896311766802,feira de santana
+7898955286081,feira de santana
+7702018072392,feira de santana
+7896422500500,feira de santana
+7896015591687,feira de santana
+7613033539695,feira de santana
+8902220114814,feira de santana
+7897460401293,feira de santana
+7896714214399,feira de santana
+7891317000530,feira de santana
+7896112107460,feira de santana
+7898556033756,feira de santana
+7897595608161,feira de santana
+7896770980979,feira de santana
+7898569765514,feira de santana
+7896548199565,feira de santana
+7893595453046,feira de santana
+7896255767033,feira de santana
+7898568357543,feira de santana
+7899620913066,feira de santana
+7898929949981,feira de santana
+7896523207834,feira de santana
+7897230302102,feira de santana
+17896770979345,feira de santana
+7896012880531,feira de santana
+6290171070214,feira de santana
+778899565,feira de santana
+7898007676594,feira de santana
+7898639691484,feira de santana
+7891721015007,feira de santana
+7898277711087,feira de santana
+7898185267423,feira de santana
+7898662240017,feira de santana
+7899620914292,feira de santana
+7896004739083,feira de santana
+7899620912748,feira de santana
+7891317011345,feira de santana
+7897337716215,feira de santana
+7898040329570,feira de santana
+7898040322618,feira de santana
+7899095233805,feira de santana
+7896054719233,feira de santana
+7896676426878,feira de santana
+7898079002499,feira de santana
+7896112407270,feira de santana
+7898075311854,feira de santana
+232323265654878,feira de santana
+7891522040192,feira de santana
+7896641804106,feira de santana
+613960129225,feira de santana
+7899828201521,feira de santana
+7896004755878,feira de santana
+7894916512022,feira de santana
+78955221100,feira de santana
+7898615893666,feira de santana
 AAS,salvador
 CICLOBENZAPRINA,salvador
 CILOSTAZOL,salvador
+CIMETIDINA,salvador
 CINARIZINA,salvador
-CIPROFIBRATO,salvador
 CIPROFLOXACINO,salvador
 CIPROTERONA,salvador
 CITALOPRAM,salvador
 CLARITROMICINA,salvador
-CIPROTERONA 50 BG 20C,feira de santana
-CIPROTERONA 50 BG 20C,salvador
+CLINDAMICINA,salvador
+CLIOQUINOL,salvador
+CLOBETASOL,salvador
+CLOMIPRAMINA,salvador
+CLONAZEPAM,salvador
+CLOPIDOGREL,salvador
+CLORMADINONA,salvador
+CLORTALIDONA,salvador
+CLOSTEBOL,salvador
+COLECALCIFEROL,salvador
+DAPAGLIFLOZINA,salvador
+DEFLAZACORTE,salvador
+DESLORATADINA,salvador
+CANDESARTANA,salvador
+CAPTOPRIL,salvador
+CARBAMAZEPINA,salvador
+CARBOCISTEINA,salvador
+CARISOPRODOL,salvador
+CARVEDILOL,salvador
+CEFADROXILA,salvador
+CEFALEXINA,salvador
+CEFTRIAXONA,salvador
+CEFUROXIMA,salvador
+CELECOXIBE,salvador
+CETOCONAZOL,salvador
+CETOPROFENO,salvador
+CETOROLACO,salvador
+CETOTIFENO,salvador
+DESOGESTREL,salvador
+DESONIDA,salvador
+DESVENLAFAXINA,salvador
+DEXAMETASONA,salvador
+DEXCLORFENIRAMINA,salvador
+DIAZEPAM,salvador
+DICLOFENACO,salvador
+DIGOXINA,salvador
+DILTIAZEM,salvador
+DIMETICONA,salvador
+DIPIRONA,salvador
+DIVALPROATO,salvador
+DOMPERIDONA,salvador
+DONEPEZILA,salvador
+DORZOLAMIDA,salvador
+DOXAZOSINA,salvador
+DOXICICLINA,salvador
+DROPROPIZINA,salvador
+DROSPIRERONA,salvador
+DULOXETINA,salvador
+DUTASTERIDA,salvador
+ENALAPRIL,salvador
+ESCITALOPRAM,salvador
+ESOMEPRAZOL,salvador
+ESPIRONOLACTONA,salvador
+ESTRIOL,salvador
+ETINILESTRADIOL,salvador
+ETODOLACO,salvador
+ETORICOXIBE,salvador
+EZETIMIBA,salvador
+FENITOINA,salvador
+FENOBARBITAL,salvador
+FENOFIBRATO,salvador
+FENTICONAZOL,salvador
+FEXOFENADINA,salvador
+FINASTERIDA,salvador
+FLUCONAZOL,salvador
+FLUNARIZINA,salvador
+FLUOXETINA,salvador
+FUROSEMIDA,salvador
+GABAPENTINA,salvador
+GENFIBROZILA,salvador
+GENTAMICINA,salvador
+GESTODENO,salvador
+GLIBENCLAMIDA,salvador
+GLICAZIDA,salvador
+GLICLAZIDA,salvador
+GLICOSAMINA,salvador
+GLIMEPIRIDA,salvador
+GUAIFENESINA,salvador
+HIDROCLOROTIAZIDA,salvador
+HIDROCORTISONA,salvador
+HIDROQUINONA,salvador
+HIDROXICLOROQUINA,salvador
+HIDROXIZINA,salvador
+IBUPROFENO,salvador
+INDAPAMIDA,salvador
+IPRATROPIO,salvador
+IRBESARTANA,salvador
+ISOSSORBIDA,salvador
+7896004713274,salvador
+7899547508765,salvador
+7898919865192,salvador
+7896006225010,salvador
+7898172862549,salvador
+7898560661570,salvador
+7896321017666,salvador
+7896007549320,salvador
+7891142202833,salvador
+7898593050075,salvador
+7908007901166,salvador
+7896658034688,salvador
+7892917004171,salvador
+7896006213093,salvador
+7891317129958,salvador
+8903855076072,salvador
+7899420507915,salvador
+7891000340981,salvador
+7895144603063,salvador
+5009602,salvador
+7896241248287,salvador
+7896641800085,salvador
+7896382706653,salvador
+4015630981977,salvador
+7891317001926,salvador
+7896112401247,salvador
+8000500126288,salvador
+7898927980375,salvador
+7898556034524,salvador
+618341625495,salvador
+7898687730289,salvador
+7898575780631,salvador
+7897947601185,salvador
+7891033510757,salvador
+7898040325466,salvador
+7896714226708,salvador
+7896023706394,salvador
+7894650005712,salvador
+7891106908641,salvador
+7898213880242,salvador
+7898559906446,salvador
+7896862970567,salvador
+7891142115492,salvador
+7898938208130,salvador
+7896311766802,salvador
+7898955286081,salvador
+7702018072392,salvador
+7896422500500,salvador
+7896015591687,salvador
+7613033539695,salvador
+8902220114814,salvador
+7897460401293,salvador
+7896714214399,salvador
+7891317000530,salvador
+7896112107460,salvador
+7898556033756,salvador
+7897595608161,salvador
+7896770980979,salvador
+7898569765514,salvador
+7896548199565,salvador
+7893595453046,salvador
+7896255767033,salvador
+7898568357543,salvador
+7899620913066,salvador
+7898929949981,salvador
+7896523207834,salvador
+7897230302102,salvador
+17896770979345,salvador
+7896012880531,salvador
+6290171070214,salvador
+778899565,salvador
+7898007676594,salvador
+7898639691484,salvador
+7891721015007,salvador
+7898277711087,salvador
+7898185267423,salvador
+7898662240017,salvador
+7899620914292,salvador
+7896004739083,salvador
+7899620912748,salvador
+7891317011345,salvador
+7897337716215,salvador
+7898040329570,salvador
+7898040322618,salvador
+7899095233805,salvador
+7896054719233,salvador
+7896676426878,salvador
+7898079002499,salvador
+7896112407270,salvador
+7898075311854,salvador
+232323265654878,salvador
+7891522040192,salvador
+7896641804106,salvador
+613960129225,salvador
+7899828201521,salvador
+7896004755878,salvador
+7894916512022,salvador
+78955221100,salvador
+7898615893666,salvador

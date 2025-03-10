@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Depurador do Python: Anexar usando o ID do Processo",
+            "type": "debugpy",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        },
+        {
             "name": "Depurador do Python: main.py",
             "type": "debugpy",
             "request": "launch",

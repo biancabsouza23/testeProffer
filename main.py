@@ -18,10 +18,10 @@ with open(arquivo_json_descricao, "r", encoding="utf-8") as f:
 # Coleta via ambos os métodos
 for cidade in ["feira de santana", "salvador"]:
     coletor.mudar_cidade(cidade)
-    for ean in lista_eans:
-        coletor.pesquisar_produto(ean)
     for descricao in lista_descricao:
         coletor.pesquisar_produto(descricao)
+    for ean in lista_eans:
+        coletor.pesquisar_produto(ean)
 
 # Salvando os resultados em CSV e JSON
 coletor.salvar_arquivo_resultados("resultado.csv", "resultado.json")
