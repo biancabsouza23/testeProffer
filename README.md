@@ -46,8 +46,8 @@ Os resultados serão salvos na pasta `output/` nos formatos `.csv` e `.json`.
 
 ## Desafios Encontrados e Soluções
 ### CAPTCHA no site
-- Foi implementado um método para detectar CAPTCHA e solicitar resolução manual antes de continuar a execução. O usuário deve apertar a tecla "enter" no terminal após resolver o captcha. O usuário é avisado por um alerta sonoro quando um captcha é detectado. Inicialmente foi tentada a utilização de uma lista circular de proxys, mas não deu certo. Acredito que, caso seja contratada, minha experiência e aprendizagem na Proffer me ajudarão a lidar melhor com desafios como esses. Por isso também que optei por utilizar uma quantidade menor de EANs e descrições, para tonar possível a resolução manual dos captchas em tempo hábil.
-
+- Foi implementado um método para detectar CAPTCHA e solicitar resolução manual antes de continuar a execução. O usuário deve apertar a tecla "enter" no terminal após resolver o captcha. O usuário é avisado por um alerta sonoro quando um captcha é detectado. Inicialmente foi tentada a utilização de uma lista circular de proxys, mas não deu certo. Acredito que, caso seja contratada, minha experiência e aprendizagem na Proffer me ajudarão a lidar melhor com desafios como esses. Por isso também que optei por utilizar uma quantidade menor de EANs e descrições, para tonar possível a resolução manual dos captchas em tempo hábil. Optei por 100 eans e 100 descrições para cada cidade, dos 400 totais, apenas 6 não foram encontrados
+- 
 ### Variações na estrutura da página
 - O código foi estruturado para lidar com diferenças na presença de descontos e estrutura dos elementos HTML.
 
