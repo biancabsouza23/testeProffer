@@ -11,7 +11,7 @@ import json
 from datetime import datetime
 import re
 import os
-
+from src.alertasonoro import AlertaSonoro
 
 class ColetorPrecosBahia:
     def __init__(self):
@@ -26,10 +26,6 @@ class ColetorPrecosBahia:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--window-size=1920,1080")
-
-        # 🔥 Configurar proxy (altere para seu proxy real)
-        proxy = "http://seu-proxy-aqui:porta"  # Exemplo: "http://123.456.789.012:8080"
-        options.add_argument(f"--proxy-server={proxy}")
 
         # Inicializa o navegador
         self.url = "https://precodahora.ba.gov.br/produtos/"
@@ -60,7 +56,9 @@ class ColetorPrecosBahia:
         )
 
     def handle_captcha(self):
-        """Verifica se há um CAPTCHA e pausa a execução para resolução manual."""
+        """
+        Verifica se há um CAPTCHA e pausa a execução para resolução manual.
+        """
         time.sleep(3)
         captcha_url = "https://precodahora.ba.gov.br/challenge/"
 
@@ -68,9 +66,13 @@ class ColetorPrecosBahia:
             print(
                 "⚠️ CAPTCHA encontrado! Resolva manualmente e pressione Enter para continuar."
             )
+            AlertaSonoro.alerta()
             input("Pressione Enter depois de resolver o CAPTCHA...")
 
     def extrair_dados_produtos(self):
+        """
+        Extrai os dados dos produtos da página atual.
+        """
         try:
             item_cards = self.driver.find_elements(
                 by=By.CSS_SELECTOR, value="div.flex-item2"
@@ -135,12 +137,12 @@ class ColetorPrecosBahia:
                     "cidade": dados_endereco["cidade"],
                     "uf": "BA",
                 }
-                self.criar_resultado(produto)  # Passamos o dicionário diretamente
+                self.adicionar_resultado(produto)  # Passamos o dicionário diretamente
         except NoSuchElementException as e:
             self.produto_nao_encontrado(self.cidade_atual, self.produto_atual)
             print("Elemento não encontrado:", e)
 
-    def criar_resultado(self, produto: dict):
+    def adicionar_resultado(self, produto: dict):
         """Adiciona o produto coletado ao DataFrame de forma segura."""
         novo_df = pd.DataFrame([produto])
 
@@ -148,9 +150,31 @@ class ColetorPrecosBahia:
             self.resultado = novo_df
         else:
             self.resultado = pd.concat([self.resultado, novo_df], ignore_index=True)
+    
+    def limpar_resultados(self):
+        """
+        Limpa o arquivo de resultados.
+        
+        Usados nos testes.
+        """
+        self.resultado = pd.DataFrame(
+            columns=[
+                "ean",
+                "descricao",
+                "preco",
+                "data_coleta",
+                "codmunicipio",
+                "codestado",
+                "rede_fonte",
+                "bairro",
+                "cidade",
+                "uf",
+                "cnpj",
+            ]
+        )
 
-    def salvar_resultado(self, nome_arquivo_csv: str, nome_arquivo_json: str):
-        """Salva os resultados coletados tanto em CSV quanto em JSON na pasta output."""
+    def salvar_arquivo_resultados(self, nome_arquivo_csv: str, nome_arquivo_json: str):
+        """Salva o arquivo de resultados coletados nos formatos CSV quanto em JSON na pasta output."""
         caminho_output = "output"
 
         # Garante que o diretório exista

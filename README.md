@@ -17,21 +17,17 @@ A solução foi implementada em **Python**, utilizando as seguintes tecnologias:
 
 ### Requisitos
 Antes de executar o projeto, certifique-se de ter instalado:
-- Python 3.8+
+- Python 3.12
 - Google Chrome
 - WebDriver compatível com sua versão do Chrome
 - Bibliotecas necessárias (instale com `pip install -r requirements.txt` caso um arquivo de dependências seja fornecido)
+- Lista de EANs e Descrições na pasta `data/`
 
 ### Execução
 ```sh
 # Clone este repositório
 git clone <git@github.com:biancabsouza23/testeProffer.git>
 cd <testeProffer>
-
-# Certifique-se de que os arquivos JSON estão na pasta correta
-mkdir data
-mv lista_eans.json data/
-mv lista_descricao.json data/
 
 # Execute o script principal
 python main.py
@@ -65,6 +61,7 @@ Os resultados serão salvos na pasta `output/` nos formatos `.csv` e `.json`.
 - Suporte para mais cidades e categorias de produtos.
 
 ## Conclusão
-Este projeto demonstrou a viabilidade de coletar informações de preço de produtos a partir do site Preço da Hora Bahia utilizando Selenium e Pandas. Com futuras melhorias, a solução pode ser otimizada para maior eficiência e escalabilidade.
+
+A solução é capaz de coletar informações de preço de produtos a partir do site Preço da Hora Bahia utilizando Selenium e Pandas. Com futuras melhorias, a solução pode ser otimizada para levar menos tempo e coletar mais itens em paralelo.
 
 
